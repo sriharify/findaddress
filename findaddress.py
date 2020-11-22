@@ -2,7 +2,7 @@ from flask import Flask,render_template,request,make_response,jsonify
 import os
 from geopy.geocoders import Nominatim
 
-
+#check
 app = Flask(__name__)
 
 
@@ -48,8 +48,6 @@ def hello():
     else:
         result['state'] = None
     return render_template('result.html',result=result)
-
-
 
 if __name__ == "__main__":
     app.run(debug=True)
