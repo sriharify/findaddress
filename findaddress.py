@@ -6,7 +6,7 @@ from geopy.geocoders import Nominatim
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/',methods=['POST','GET'])
 def home():
     return render_template('home.html')
 
