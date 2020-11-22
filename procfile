@@ -1,2 +1,2 @@
-web: gunicorn findaddress:app
+web: python findaddress.py
 heroku ps
