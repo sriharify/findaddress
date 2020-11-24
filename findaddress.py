@@ -2,16 +2,12 @@ from flask import Flask,render_template,request,make_response,jsonify
 import os
 from geopy.geocoders import Nominatim
 
-#check
+
 app = Flask(__name__)
 
 
-@app.route('/',methods=['POST','GET'])
-def home():
-    return render_template('home.html')
 
-
-@app.route('/findaddress', methods=["POST"])
+@app.route('/', methods=["POST"])
 def hello():
     lat = request.form['lati']
     lon = request.form['longi']
@@ -19,6 +15,7 @@ def hello():
     #{"lat":"9.9397281","lon":"78.0910666"}
     locator = Nominatim(user_agent="myGeocoder")
     location = locator.reverse(coordinates)
+    print(location)
     address = location.raw
     address = address['address']
     key = address.keys()
@@ -47,7 +44,5 @@ def hello():
         result['state'] = address['state']
     else:
         result['state'] = None
-    return render_template('result.html',result=result)
+    return address
 
-if __name__ == "__main__":
-    app.run(debug=True)

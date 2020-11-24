@@ -1,2 +1,2 @@
-web: gunicorn findaddress:app
+web: gunicorn wsgi:app
 heroku ps
